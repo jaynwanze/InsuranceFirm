@@ -12,7 +12,6 @@ import java.util.ArrayList;
 //Public class
 public class InsuranceFirm {
 
-    HashMap<Driver, Car> policyHolderList;
     ArrayList<Driver> driverList;
     ArrayList<Car> carList;
     ArrayList<Policy> policyList;
@@ -24,9 +23,9 @@ public class InsuranceFirm {
     // Constructor class
     public InsuranceFirm() {
 
-        for (int i = 1 ; i <= MAX_DRIVERS; i++) {
+        for (int i = 1; i <= MAX_DRIVERS; i++) {
             System.out.print("\nDriver number " + i + ": ");
-            
+
             // Intialise when creating drivers
             driverList = new ArrayList<Driver>();
             createDriver();// Method to add drivers
@@ -36,7 +35,6 @@ public class InsuranceFirm {
             createCar(); // Method to add cars
 
             // Intialise when creating policies
-            policyHolderList = new HashMap<Driver, Car>();
             policyList = new ArrayList<Policy>();
             createPolicy(); // Method to add policies
 
@@ -51,250 +49,46 @@ public class InsuranceFirm {
         }
     }
 
+    // Method to create driver
     public void createDriver() {
+        // Intializing car object
 
-        Driver newDriver = null;
+        Driver driver1 = null;
+        Driver driver2 = null;
 
-        String licenseNum, name, contactNum, ans;
-        int numPoints;
-
-        Scanner scan = new Scanner(System.in);
-
-        // Enter valid drivers license
-        System.out.print("\nEnter the drivers license number - Must be integer values and 4 characters long: ");
-
-        do {
-            licenseNum = scan.nextLine();
-
-            if (licenseNum.isBlank() || (!licenseNum.matches("^\\d+(\\.\\d+)?")) || (licenseNum.length() != 4)) {
-                System.out.println(
-                        "\nPlease re-enter a drivers license number - Must be integer value and 4 characters long: ");
-            }
-        } while (licenseNum.isBlank() || (!licenseNum.matches("^\\d+(\\.\\d+)?")) || (licenseNum.length() != 4));
-
-        // Enter valid name
-        System.out.print("Enter the full name of driver: ");
-        do {
-            name = scan.nextLine();
-            if (!name.matches("^[\\p{L} .'-]+$")) {
-                System.out.println("Please re-enter a valid full name: ");
-            }
-        } while ((!name.matches("^[\\p{L} .'-]+$")));
-
-        // Enter valid number of points
-        System.out.print("Enter number of points on license: ");
-        do {
-            ans = scan.nextLine();
-
-            if (!ans.matches("^\\d+(\\.\\d+)?") || ans.isBlank()) {
-                System.out.println("\nInvalid entry- Please enter an integer: ");
-            }
-
-        } while ((!ans.matches("^\\d+(\\.\\d+)?")) || ans.isBlank());
-
-        numPoints = Integer.parseInt(ans);
-
-        // Enter contact number
-        System.out.print("Enter contact number: ");
-        do {
-            contactNum = scan.nextLine();
-
-            if (contactNum.isBlank() || (!licenseNum.matches("^\\d+(\\.\\d+)?")) || (contactNum.length() != 9)) {
-                System.out.println(
-                        "\nPlease re-enter a drivers license number - Must be integer value and 9 characters long: ");
-            }
-        } while (contactNum.isBlank() || (!contactNum.matches("^\\d+(\\.\\d+)?")) || (contactNum.length() != 9));
-
-        newDriver = new Driver(licenseNum, name, numPoints, contactNum);
-
-        driverList.add(newDriver);
-        System.out.print("\nThis driver has now been created and is now added to the list!\n");
+        // Enter valid drivers details and Add to list
+        driver1 = new Driver("111111111", "John Smith", 7, "0861593429");
+        driver2 = new Driver("222222222", "Jay Brady", 12, "0879438493");
+        driverList.add(driver1);
+        driverList.add(driver2);
 
     }
 
+    // Method to create car
     public void createCar() {
-        Car newCar = null;
+        // Intializing car object
+        Car car1 = null;
+        Car car2 = null;
 
-        String carReg, engineSize, ans;
-        int yearManufactured;
-
-        Scanner scan = new Scanner(System.in);
-
-        // Enter valid car reg number
-        System.out.print("\nEnter the car registration number - Must be integer values and 4 characters long: ");
-
-        do {
-            carReg = scan.nextLine();
-
-            if (carReg.isBlank() || (carReg.length() != 4)) {
-                System.out.println(
-                        "\nPlease re-enter a car registration number - Must be integer value and 4 characters long: ");
-            }
-        } while (carReg.isBlank() || (carReg.length() != 4));
-
-        // Enter car year of manufacture
-        System.out.print("Enter the year of manufacture: ");
-        do {
-
-            ans = scan.nextLine();
-
-            if (!ans.matches("^\\d+(\\.\\d+)?") || ans.isBlank() || (ans.length() != 4)) {
-                System.out.println("\nInvalid entry- Please enter an integer and 4 characters long: ");
-            }
-
-        } while ((!ans.matches("^\\d+(\\.\\d+)?")) || ans.isBlank() || (ans.length() != 4));
-
-        yearManufactured = Integer.parseInt(ans);
-
-        // Enter car engine size
-        System.out.print("Enter car engine size: ");
-
-        do {
-            engineSize = scan.nextLine();
-
-            if (engineSize.isBlank()) {
-                System.out.println(
-                        "\nInvalid entry - Try Again: ");
-            }
-        } while (engineSize.isBlank());
-
-        newCar = new Car(carReg, yearManufactured, engineSize);
-
-        // Enter nct status
-        System.out.print("Enter NCT status(True or False): ");
-        do {
-
-            ans = scan.nextLine();
-
-            if (ans.isBlank() || !ans.equalsIgnoreCase("true") || !ans.equalsIgnoreCase("false")) {
-                System.out.println(
-                        "\nInvalid entry - Try Again: ");
-            } else if (ans.equalsIgnoreCase("true")) {
-                newCar.setNctStatus(true);
-            }
-
-        } while (ans.isBlank());
-
-        carList.add(newCar);
-        System.out.print("\nThis car has now been created and is now added to the list!\n");
+        // Enter valid car details and Add to list
+        car1 = new Car("143D23454", 2012, "2.2");
+        car2 = new Car("123H44334", 2004, "2.2");
+        carList.add(car1);
+        carList.add(car2);
 
     }
 
+    // method to create policy
     public void createPolicy() {
+        // Intializing policy object
+        Policy policy1 = null;
+        Policy policy2 = null;
 
-        Driver d = null;
-        Car c = null;
-        Policy newPolicy;
-
-        String licenseNum, carReg, id, ans;
-        int numsClaims;
-        double premium;
-
-        Scanner scan = new Scanner(System.in);
-
-        // Policy Creation
-        System.out.print("\nNow lets create a policy!!!!!!!!!!!!!!!: ");
-        // yes or no to create policy
-        do {
-            System.out.print("\nWould you like to create policy - (Yes/No): ");
-            ans = scan.nextLine();
-            if (ans.equalsIgnoreCase("yes")) {
-                System.out.print("\nEnter the drivers license number - Must be integer values and 4 characters long: ");
-
-                do {
-                    licenseNum = scan.nextLine();
-
-                    if (licenseNum.isBlank() || (!licenseNum.matches("^\\d+(\\.\\d+)?"))
-                            || (licenseNum.length() != 4)) {
-                        System.out.println(
-                                "\nPlease re-enter a drivers license number - Must be integer value and 4 characters long: ");
-                    }
-                } while (licenseNum.isBlank() || (!licenseNum.matches("^\\d+(\\.\\d+)?"))
-                        || (licenseNum.length() != 4));
-
-                // If driver has less the 12 points on license
-                if (checkPenaltyPoints(licenseNum) == false) {
-
-                    // Enter valid drivers license
-                    System.out.print(
-                            "\nEnter the car registration number - Must be integer values and 4 characters long: ");
-
-                    do {
-                        carReg = scan.nextLine();
-
-                        if (carReg.isBlank() || (!carReg.matches("^\\d+(\\.\\d+)?")) || (carReg.length() != 4)) {
-                            System.out.println(
-                                    "\nPlease re-enter a car registration number - Must be integer value and 4 characters long: ");
-                        }
-                    } while (carReg.isBlank() || (!carReg.matches("^\\d+(\\.\\d+)?")) || (carReg.length() != 4));
-
-                    // Enter valid policy id
-                    System.out.print("\nEnter valid policy id - Must be integer values and 4 characters long: ");
-                    do {
-                        id = scan.nextLine();
-
-                        if (id.isBlank() || (!id.matches("^\\d+(\\.\\d+)?")) || (id.length() != 4)) {
-                            System.out.println(
-                                    "\nPlease re-enter a drivers license number - Must be integer value and 4 characters long: ");
-                        }
-                    } while (id.isBlank() || (!id.matches("^\\d+(\\.\\d+)?")) || (id.length() != 4));
-
-                    // Enter policy premium
-                    System.out.print("Enter policy premium: ");
-                    do {
-
-                        ans = scan.nextLine();
-
-                        if (!ans.matches("^\\d+(\\.\\d+)?") || ans.isBlank()) {
-                            System.out.println("\nInvalid entry- Please enter an integer: ");
-                        }
-
-                    } while ((!ans.matches("^\\d+(\\.\\d+)?")) || ans.isBlank());
-
-                    premium = Double.parseDouble(ans);
-
-                    // Enter number of claims
-                    System.out.print("Enter number of claims: ");
-                    do {
-
-                        ans = scan.nextLine();
-
-                        if (!ans.matches("^\\d+(\\.\\d+)?") || ans.isBlank()) {
-                            System.out.println("\nInvalid entry- Please enter an integer: ");
-                        }
-
-                    } while ((!ans.matches("^\\d+(\\.\\d+)?")) || ans.isBlank());
-
-                    numsClaims = Integer.parseInt(ans);
-
-                    // Create New Policy
-                    newPolicy = new Policy(id, premium, numsClaims);
-                    // Set policyholder id
-                    policyHolderList.put(d, c);
-                    newPolicy.setPolicyHolderId(policyHolderList);
-                    System.out.print(
-                            "\n*******************************************************************************\n");
-                    System.out.print("\nYour policy has been created!!!!!\n");
-                    System.out.print(
-                            "\n*******************************************************************************\n");
-                }
-
-                // Else error message policy operation cannot be completed
-                else {
-
-                    System.out.print(
-                            "\n*******************************************************************************\n");
-                    System.out.print("\nNot able to provide policy as driver has 12 or more penalty points\n");
-                    System.out.print(
-                            "\n*******************************************************************************\n");
-
-                }
-            } else if (ans.equalsIgnoreCase("false")) {
-                System.out.print("\n*******************************************************************************\n");
-                System.out.print("\nNo worries, Have a good day!!!!\n");
-                System.out.print("\n*******************************************************************************\n");
-            }
-        } while (ans.isBlank());
+        // Create New Policy and add to list
+        policy1 = new Policy(driverList.get(0), carList.get(0), "1111", 1000.00, 2);
+        policy2 = new Policy(driverList.get(1), carList.get(1), "2222", 2000.00, 1);
+        policyList.add(policy1);
+        policyList.add(policy2);
 
     }
 

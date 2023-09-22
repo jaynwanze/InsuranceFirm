@@ -11,17 +11,8 @@ public class Car {
     // instance variable of Car class
     private String regNum;// Car reg number
     private int yearManufactured;// Car name
-    private String engineSize;// Number of points on reg
+    private String engineSize;// Number of points on resg
     private boolean nctStatus;// Nct Status
-
-    // Constructor - Empty
-    public Car() {
-        this.regNum = "";
-        this.yearManufactured = 0;
-        this.engineSize = "";
-        this.nctStatus = false;
-
-    }
 
     // Constructor - With passed in details
     public Car(String regNumber, int year, String engine) {

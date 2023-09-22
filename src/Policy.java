@@ -11,25 +11,18 @@ public class Policy {
 
     // instance variable of Policy class
     private String id;// Policy id
+    private Driver driver;
+    private Car car;
     private double premium;// Policy name
     private int numClaims;// Number of claims on policy
-    private HashMap<Driver, Car> policyHolderId; // Policy holder id
-
-
-    // Constructor - Empty
-    public Policy() {
-        this.id = "";
-        this.premium = 0;
-        this.numClaims = 0;
-        this.policyHolderId = null;
-    }
 
     // Constructor - With passed in details
-    public Policy(String id, double premium, int claims)
-    {
+    public Policy(Driver driver, Car car, String id, double premium, int claims) {
         this.id = id;
         this.premium = premium;
         this.numClaims = claims;
+        this.driver = driver;
+        this.car = car;
 
     }
 
@@ -48,11 +41,6 @@ public class Policy {
         return this.numClaims;
     }
 
-    // returns policy holderid
-    public HashMap<Driver, Car> getPolicyHolderId() {
-        return this.policyHolderId;
-    }
-
     // Updates Policy year manufactured
     public void setId(String id) {
         this.id = id;
@@ -68,12 +56,6 @@ public class Policy {
         this.numClaims = claims;
     }
 
-    // Updates policy holder id
-    public void setPolicyHolderId(HashMap<Driver, Car>  policyHolder) {
-        this.policyHolderId = policyHolder;
-
-    }
-
     public void increasePremium(double p) {
 
         this.premium = this.premium * 0.05;
@@ -83,6 +65,6 @@ public class Policy {
     // Displays Policy details
     public String toString() {
         return "Policy id: " + this.id + "\n" + "Policy premium: " + this.premium + "\n"
-        + "Number of policy claims: " + this.numClaims + "\n";
+                + "Number of policy claims: " + this.numClaims + "\n";
     }
 }

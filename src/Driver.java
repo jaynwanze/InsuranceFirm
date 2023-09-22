@@ -13,15 +13,6 @@ public class Driver {
     private int numPoints;// Number of points on license
     private String contactNum;// Contact Number
 
-    // Constructor - Empty
-    public Driver() {
-        this.licenseNum = "";
-        this.name = "";
-        this.numPoints = 0;
-        this.contactNum = "";
-
-    }
-
     // Constructor - With passed in details
     public Driver(String licenseNumber, String name, int points, String contact) {
 
