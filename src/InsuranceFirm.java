@@ -187,7 +187,8 @@ public class InsuranceFirm {
         Policy newPolicy;
 
         String licenseNum, carReg, id, ans;
-        int numsClaims, premium;
+        int numsClaims;
+        double premium;
 
         Scanner scan = new Scanner(System.in);
 
@@ -250,7 +251,7 @@ public class InsuranceFirm {
 
                     } while ((!ans.matches("^\\d+(\\.\\d+)?")) || ans.isBlank());
 
-                    premium = Integer.parseInt(ans);
+                    premium = Double.parseDouble(ans);
 
                     // Enter number of claims
                     System.out.print("Enter number of claims: ");
