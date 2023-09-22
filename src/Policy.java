@@ -11,7 +11,7 @@ public class Policy {
 
     // instance variable of Policy class
     private String id;// Policy id
-    private int premium;// Policy name
+    private double premium;// Policy name
     private int numClaims;// Number of claims on policy
     private HashMap<Driver, Car> policyHolderId; // Policy holder id
 
@@ -25,7 +25,7 @@ public class Policy {
     }
 
     // Constructor - With passed in details
-    public Policy(String id, int premium, int claims)
+    public Policy(String id, double premium, int claims)
     {
         this.id = id;
         this.premium = premium;
@@ -39,7 +39,7 @@ public class Policy {
     }
 
     // returns Policy premium
-    public int getPremium() {
+    public double getPremium() {
         return this.premium;
     }
 
@@ -58,8 +58,8 @@ public class Policy {
         this.id = id;
     }
 
-    // Updates Policy preium
-    public void setPremium(int premium) {
+    // Updates Policy premium
+    public void setPremium(double premium) {
         this.premium = premium;
     }
 
@@ -74,7 +74,9 @@ public class Policy {
 
     }
 
-    public void increasePremium() {
+    public void increasePremium(double p) {
+
+        this.premium = this.premium * 0.05;
 
     }
 
