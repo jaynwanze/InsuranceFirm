@@ -15,11 +15,12 @@ public class Car {
     private boolean nctStatus;// Nct Status
 
     // Constructor - With passed in details
-    public Car(String regNumber, int year, String engine) {
+    public Car(String regNumber, int year, String engine, boolean nct) {
 
         this.regNum = regNumber;
         this.yearManufactured = year;
         this.engineSize = engine;
+        this.nctStatus = nct;
 
     }
 

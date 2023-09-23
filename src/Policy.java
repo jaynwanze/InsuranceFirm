@@ -5,8 +5,6 @@
 // Description of class: Policy class for program
 //************************************************************
 
-import java.util.HashMap;
-
 public class Policy {
 
     // instance variable of Policy class
@@ -24,6 +22,17 @@ public class Policy {
         this.driver = driver;
         this.car = car;
 
+    }
+
+
+      //returns driver on policy
+    public Driver getDriver() {
+        return this.driver;
+    }
+
+    // returns car on policy
+    public Car getCar() {
+        return this.car;
     }
 
     // returns Policy id
@@ -56,15 +65,23 @@ public class Policy {
         this.numClaims = claims;
     }
 
+    // Method to increase policy premiums
     public void increasePremium(double p) {
+        //Variable of increased perectage 
+        double increasedAmount;
 
-        this.premium = this.premium * 0.05;
+        //Intializing increased amount
+        increasedAmount = this.premium * p;
+
+        //Updating and adding increase to current premium
+        this.premium = this.premium + increasedAmount;
 
     }
 
     // Displays Policy details
     public String toString() {
         return "Policy id: " + this.id + "\n" + "Policy premium: " + this.premium + "\n"
-                + "Number of policy claims: " + this.numClaims + "\n";
+                + "Number of policy claims: " + this.numClaims + "\n" + "Driver Name: " 
+                + this.driver.getName() + "\n" + "Car Registration: " + this.car.getRegNumber() + "\n";
     }
 }
