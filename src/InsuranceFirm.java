@@ -98,7 +98,7 @@ public class InsuranceFirm {
         System.out.println("Policy List:");
         System.out.println("************");
 
-        // Displaying car list details
+        // Displaying policy list details
         for (int i = 0; i < policyList.size(); i++) {
 
             System.out.println("Policy Number " + (i + 1) + ":" + "\n" + policyList.get(i));
