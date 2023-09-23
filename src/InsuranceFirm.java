@@ -15,11 +15,6 @@ public class InsuranceFirm {
     ArrayList<Car> carList = new ArrayList<Car>();
     ArrayList<Policy> policyList = new ArrayList<Policy>();
 
-    Policy policy1;
-    Policy policy2;
-    Driver driver1, driver2, driver3;
-    Car car1, car2, car3;
-
     // Constructor class
     public InsuranceFirm() {
 
@@ -33,10 +28,13 @@ public class InsuranceFirm {
     }
 
     public void createDriver() {
+        //Declaring driver objects
+        Driver driver1, driver2, driver3;
+
         // Initialzing driver details
         driver1 = new Driver("647389232", "John Smith", 7, "0861593429");
         driver2 = new Driver("938459423", "Jay Brady", 10, "0879438493");
-        driver3 = new Driver("223945854", "Michelle Long", 2, "0839450032");
+        driver3 = new Driver("223945854", "Michelle Long", 12, "0839450032");
 
         // Adding to drivers to list
         driverList.add(driver1);
@@ -58,12 +56,15 @@ public class InsuranceFirm {
     }
 
     public void createCar() {
-        // Initialzing car details and adding to car list
+        //Declaring car objects
+        Car car1, car2, car3;
+
+        // Initialzing car details
         car1 = new Car("142D23454", 2014, "2.0", false);
         car2 = new Car("121H44334", 2012, "1.6", true);
         car3 = new Car("05M10222", 2005, "1.2", true);
 
-        // Display car list details
+        // Adding to car list
         carList.add(car1);
         carList.add(car2);
         carList.add(car3);
@@ -83,9 +84,12 @@ public class InsuranceFirm {
     }
 
     public void createPolicy() {
+        //Declaring policy objects
+        Policy policy1, policy2;
+
         // Create New Policy and add to list if driver has less than 12 points
-        policy1 = new Policy(driver1, car1, "1111", 1000.00, 2);
-        policy2 = new Policy(driver2, car2, "2222", 2000.00, 1);
+        policy1 = new Policy(driverList.get(0), carList.get(0), "1111", 1000.00, 2);
+        policy2 = new Policy(driverList.get(1), carList.get(1), "2222", 2000.00, 1);
         policyList.add(policy1);
         policyList.add(policy2);
 
