@@ -4,6 +4,7 @@
 // Author: Jamin Nwanze
 // Student Number: C21438482
 // Description of class: Car class for program
+//Describes car class
 //************************************************************
 
 public class Car {
